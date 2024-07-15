@@ -6,7 +6,7 @@ public class IfElseExam2 {
 
 	public static void main(String[] args) {
 		
-		//함정
+		//함정 - 나이와 같은 값들은 언제든지 바뀔 수 있다. *2 이런식으로 구하면 안됨.
 		Scanner input = new Scanner(System.in);
 	
 		int money = 900_000;
