@@ -2,7 +2,7 @@ package day3;
 
 import java.util.Scanner;
 
-public class home1 {
+public class Infinite99dan {
 	
 	public static void main(String[] args) {
 		

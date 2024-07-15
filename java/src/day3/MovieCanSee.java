@@ -2,7 +2,7 @@ package day3;
 
 import java.util.Scanner;
 
-public class Home2 {
+public class MovieCanSee {
 
 	public static void main(String[] args) {
 	
