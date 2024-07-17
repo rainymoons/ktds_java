@@ -1,0 +1,110 @@
+package classEx;
+
+import javax.accessibility.AccessibleStreamable;
+
+public class Purifier {
+
+	/*
+	 * 정수기에 남은 물의 양
+	 */
+	double remainWater;
+	
+	/*
+	 * 물 배출 버튼
+	 */
+//	String waterExhaustButton; -> 필요가 없어져버렸네. 이 멤버변수는 쓰지 않는다. 
+	
+	/*
+	 * 냉수/온수 선택 버튼(냉수/온수 여부)
+	 * 0 : 냉수
+	 * 1 : 온수
+	 */
+	int temperature;
+	
+	/*
+	 * 정수기에 남아있는 얼음의 양(단위 : 개)
+	 */
+	double remainIceBlock;
+	
+	/*
+	 * 얼음 배출 버튼
+	 */
+//	String iceExhaustButton; -> 필요가 없어져 버렸네. iceExhaust가 이미 얼음 배출을 한 것.
+	
+	/*
+	 * 정수 필터
+	 */
+	int filter;
+	
+	
+	
+	// 아래는 클래스를 정의하는 것. 실재하는 무언가를 찾아가서 정의한다. 
+	
+	/*
+	 * 물 배출 -> 이것 자체가 물 배출 버튼을 누른 행위이다. -> 물 배출 버튼이라는 것은 필요가 없는 것.
+	 */
+	public void waterExhaust() {
+		//물 배출 버튼을 누르면, 정수기 물통의 양이 줄어든다.
+		if (remainWater > 0) {
+			remainWater--;
+		}
+		
+		//남아있는 물의 양이 0일때는 물통의 양이 더 이상 줄어들 수 없다!
+		
+	}
+	
+	/*
+	 * 온도 조절
+	 */
+	public void chooseTemperature() {
+		//온도 조절 버튼을 누를 때 마다 냉수/온수가 전환된다. 0 / 1
+		if (temperature == 0) {
+			temperature = 1; // 냉수일때는 온수로 변환
+		} else {
+			temperature = 0; // 온수일 때는 냉수로 변환.
+		}
+	}
+	
+	/*
+	 * 냉각 기능
+	 * (얼음을 생성)
+	 */
+	public void makeIce() {
+		// 정수기에 보관할 수 있는 최대 얼음의 개수가 100개.
+		// 만약, 남아있는 얼음의 개수가 100개라면 얼음을 생성하지 않는다.
+		if(remainIceBlock < 100) {
+			remainIceBlock++;
+		}
+	}
+	
+	/**
+	 * 정수 기능 -> 물이 나올때 되는 것. 결국, 필터링 == 물을 추출하는 것
+	 * 값이 100이라면, 새 필터.
+	 * 값이 0이라면 교체해야하는 필터. -> 커피 찌꺼기랑 연관지으면 될 듯.
+	 */
+	public void fillWater() {
+		//정수기 물통의 최대 저장용량이 30L로 가정.
+		// 물통에 남아있는 물의 양이 30L라면 물을 채우지 않는다.
+		
+		//1. 물통에 물을 채운다.
+		if (remainWater < 30) {
+			remainWater++;			
+		// 2. 물은 필터를 통해 걸러진다. ==> 필터의 사용량이 줄어든다.
+		// 필터의 사용량이 0이 된다면, 필터는 정상기능을 수행할 수 없다.
+			if(filter > 0) {
+				filter--; 				
+			}
+		
+		}
+	}
+	
+	/*
+	 * 얼음 배출 기능 
+	 */
+	public void iceExhaust() {
+		// 남아있는 얼음의 개수가 0보다 클때만 얼음을 배출한다.
+		if(remainIceBlock > 0) {
+			remainIceBlock--;
+		}
+	}
+}
