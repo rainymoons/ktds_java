@@ -30,8 +30,6 @@ public class ItemVendingMachine {
 				this.itemOne.stock -= PressTime; //스톡을 누르는 횟수만큼 차감	
 				//손님이 가져갈 상품의 정보. outputItem을 반환.
 				Item outputItem = new Item(this.itemOne.name, this.itemOne.price*PressTime, PressTime);
-				// 논리적 목적 -> outPutItem에 담지 않으면 진열되어 있는 모든 상품이 나갈 위험이 존재한다. 그것을 방지하기 위한 것.
-				// 도구적 목적 -> outPutItem에 담아 놓은 상품명, 누른 횟수(제품 수량), 가격 등의 정보를 재고 관리에 사용하기 위함임.
 				
 				return outputItem; // 손님에게 상품을 전달한다.
 				
@@ -44,12 +42,13 @@ public class ItemVendingMachine {
 		}
 		else if(this.itemTwo.name.equals(ItemName)) {
 			if (this.itemTwo.stock > 0 && this.itemTwo.stock >= PressTime) {
-				this.itemTwo.stock -= PressTime; 	
-				
+				this.itemTwo.stock -= PressTime; //스톡을 누르는 횟수만큼 차감	
+				//손님이 가져갈 상품의 정보. outputItem을 반환.
 				Item outputItem = new Item(this.itemTwo.name, this.itemTwo.price*PressTime, PressTime);
 				
-				return outputItem; 
+				return outputItem; // 손님에게 상품을 전달한다.
 				
+				//return this.itemOne; //ItemOne은 자판기가 보유하고 있는 상품의 정보. 버튼을 1회 누르면 한개의 상품을 가져감. return this.ItemOne은 자판기가 가지고 있는 모든 상품을 주게 된다는 것.
 				
 			} else {
 				System.out.println("상품이 품절되었습니다.");
@@ -58,10 +57,13 @@ public class ItemVendingMachine {
 		}
 		else if(this.itemThree.name.equals(ItemName)) {
 			if (this.itemThree.stock > 0 && this.itemThree.stock >= PressTime) {
-				this.itemThree.stock -= PressTime; 
+				this.itemThree.stock -= PressTime; //스톡을 누르는 횟수만큼 차감	
+				//손님이 가져갈 상품의 정보. outputItem을 반환.
 				Item outputItem = new Item(this.itemThree.name, this.itemThree.price*PressTime, PressTime);
 				
-				return outputItem;
+				return outputItem; // 손님에게 상품을 전달한다.
+				
+				//return this.itemOne; //ItemOne은 자판기가 보유하고 있는 상품의 정보. 버튼을 1회 누르면 한개의 상품을 가져감. return this.ItemOne은 자판기가 가지고 있는 모든 상품을 주게 된다는 것.
 				
 			} else {
 				System.out.println("상품이 품절되었습니다.");
@@ -70,11 +72,13 @@ public class ItemVendingMachine {
 		}
 		else if(this.itemFour.name.equals(ItemName)) {
 			if (this.itemFour.stock > 0 && this.itemFour.stock >= PressTime) {
-				this.itemFour.stock -= PressTime;
+				this.itemFour.stock -= PressTime; //스톡을 누르는 횟수만큼 차감	
+				//손님이 가져갈 상품의 정보. outputItem을 반환.
 				Item outputItem = new Item(this.itemFour.name, this.itemFour.price*PressTime, PressTime);
 				
-				return outputItem;
+				return outputItem; // 손님에게 상품을 전달한다.
 				
+				//return this.itemOne; //ItemOne은 자판기가 보유하고 있는 상품의 정보. 버튼을 1회 누르면 한개의 상품을 가져감. return this.ItemOne은 자판기가 가지고 있는 모든 상품을 주게 된다는 것.
 				
 			} else {
 				System.out.println("상품이 품절되었습니다.");
@@ -84,7 +88,7 @@ public class ItemVendingMachine {
 		else {
 			System.out.println("그런 상품은 없습니다.");
 		}
-		return null; 
+		return null; // 메모리에 할당된 데이터가 없는 상태. 타입이 Item이므로.
 	}
 	
 	// 입고하기 - 파라미터 (제품명, 입고 수량) name과 같으면 Stock을 증가시킨다. -> 주문하기와 동일

@@ -19,9 +19,9 @@ public class CoffeeShop {
 	 * @param quantity 주문할 수량
 	 * @return 주문 총액
 	 */
-	public int orderCoffee(int menuName, int quantity) {
-		if (menuName == 1) {
-			this.iceAmericano.price * quantity;
+	public int orderCoffee(String menuName, int quantity) {
+		if (this.iceAmericano.name == menuName) {
+			this.iceAmericano.price * ;
 		} else if (this.hotAmericano.name == menuName) {
 			this.hotAmericano*quantity;
 		}
