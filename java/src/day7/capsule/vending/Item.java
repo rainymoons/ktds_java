@@ -1,13 +1,16 @@
-package day6.teaching;
+package day7.capsule.vending;
 
 /**
  * 자판기에서 판매하는 상품.
  */
 public class Item {
 	
-	String name;
-	int price;
-	int stock;
+	private String name;
+	
+	private int price;
+	
+	private int stock;
+	
 	
 	//Producer producer; // 생산자를 추가할 수도 있음.
 	
@@ -17,4 +20,18 @@ public class Item {
 		this.price = price;
 		this.stock = stock;
 	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public int getStock() {
+		return stock;
+	}
+	
+
 }
