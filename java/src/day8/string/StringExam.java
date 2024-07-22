@@ -337,10 +337,19 @@ public class StringExam {
 	}
 	
 	public static void printFormatResult() {
-		/**
-		 * 
-		 * 
+		/*
+		 * %s : String 할당
+		 * %d : Decimal 할당 (정수형)
+		 * %f : floating point number 할당
+		 * %.2f : 부동소수점들을 소수점 이하 두 자리만 표현
+		 * %.4f : 부동소수점들을 소수점 이하 두 자리만 표현
 		 */
+		String format = "%s 에서 교육하는 %s %d 교육입니다.";
+		
+		String formatedString = String.format(format, "ktds University", "Java", 22);
+		
+		System.out.println(formatedString);
+		
 	}
 	
 	public static void printstartWithResult() {
