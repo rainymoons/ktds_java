@@ -21,7 +21,7 @@ public class StringExam {
 	// 파일의 경로에서 파일명만 추출하고 싶을때
 	// 한개의 메소드를 통해서 여러 파일의 이름들을 추출하고 싶다.
 	public static void printSubStringExtractFileNameResult() {
-		//				   01 234567890123 4567890 12345678  -> 0넘어가면 10임.
+		//				   01  23456789012  345678  9012345678  -> 0넘어가면 10임.
 		String filePath = "C:\\dev_program\\images\\pen.png";
 		String fileName = extractFileName(filePath);
 		System.out.println(fileName);
@@ -58,12 +58,12 @@ public class StringExam {
 		System.out.println(day + "일");
 		
 		// datetime에서 시 만 추출 
-		
-		
+		String hour = datetime.substring(11, 13);
+		System.out.println(hour + "시");
 		
 		// datetime에서 분 만 추출 
-		
-		
+		String minutes = datetime.substring(14, 16);
+		System.out.println(minutes + "분");
 		
 		// datetime에서 초 만 추출 
 		String seconds = datetime.substring(17); // 17번 부터 끝까지
